@@ -1,0 +1,6 @@
+{
+  "mode_name": "WarSlot",
+  "cost_multiplier": 1.0,
+  "logic_filename": "war_logic.jsonl.zst",
+  "csv_filename": "war_lookup.csv"
+}

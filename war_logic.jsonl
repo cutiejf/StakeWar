@@ -1,0 +1,7 @@
+{"id": "normal_win", "condition": "player_value > house_value", "payout": 2.0}
+{"id": "war_3rd_win", "condition": "player_3rd > house_3rd", "payout": 2.5}
+{"id": "war_2nd_win", "condition": "player_2nd > house_2nd", "payout": 3.5}
+{"id": "war_1st_win", "condition": "player_1st > house_1st", "payout": 5.0}
+{"id": "triple_draw", "condition": "player_3rd == house_3rd && player_2nd == house_2nd && player_1st == house_1st", "payout": 10.0}
+{"id": "house_win", "condition": "house_value > player_value", "payout": 0.0}
+{"id": "house_war_win", "condition": "house_3rd > player_3rd || house_2nd > player_2nd || house_1st > player_1st", "payout": 0.0}

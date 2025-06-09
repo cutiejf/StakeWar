@@ -1,0 +1,8 @@
+ID,Probability,Payout
+normal_win,0.500000,2.0
+war_3rd_win,0.200000,2.5
+war_2nd_win,0.150000,3.5
+war_1st_win,0.100000,5.0
+triple_draw,0.010000,10.0
+house_win,0.030000,0.0
+house_war_win,0.010000,0.0
