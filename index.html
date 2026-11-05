@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10241c">
+    <meta name="description" content="Play Stake War, a card game of War with optional side bets.">
+    <title>Stake War</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Stake War home">
+          <span class="brand-mark" aria-hidden="true">♠</span>
+          <span>STAKE <strong>WAR</strong></span>
+        </a>
+        <div class="top-stats" aria-live="polite">
+          <div class="stat"><span>CHIPS</span><strong id="chips">10,000</strong></div>
+          <div class="stat"><span>PROFIT / LOSS</span><strong id="profit">+0</strong></div>
+        </div>
+      </header>
+
+      <section class="table" aria-label="Stake War table">
+        <div class="table-center">
+          <section class="side house-side" aria-label="House cards">
+            <div class="side-heading"><span class="dot house-dot"></span>HOUSE</div>
+            <div class="cards" id="house-cards"></div>
+          </section>
+          <div class="table-message" id="message" role="status" aria-live="polite">
+            <span class="message-kicker">WELCOME TO THE TABLE</span>
+            <strong>Place your bets</strong>
+            <span>Beat the house. If you tie, it’s time for War.</span>
+          </div>
+          <section class="side player-side" aria-label="Your cards">
+            <div class="cards" id="player-cards"></div>
+            <div class="side-heading"><span class="dot player-dot"></span>YOU</div>
+          </section>
+        </div>
+        <div class="table-caption"><span>♣</span> 52 CARD DECK <span>♣</span></div>
+      </section>
+
+      <section class="control-panel" aria-label="Game controls">
+        <div class="bet-controls">
+          <div class="bet-row">
+            <div class="bet-label"><span class="bet-icon main-icon">♠</span><span><strong>Main bet</strong><small>Minimum 50 chips</small></span></div>
+            <div class="stepper">
+              <button type="button" class="step-button" data-bet="main" data-step="-10" aria-label="Decrease main bet by 10">−</button>
+              <output id="main-bet">50</output>
+              <button type="button" class="step-button" data-bet="main" data-step="10" aria-label="Increase main bet by 10">+</button>
+            </div>
+          </div>
+          <div class="bet-row">
+            <div class="bet-label"><span class="bet-icon tie-icon">≋</span><span><strong>Tie bet</strong><small>Pays 3x on a tie</small></span></div>
+            <div class="stepper">
+              <button type="button" class="step-button" data-bet="tie" data-step="-5" aria-label="Decrease tie bet by 5">−</button>
+              <output id="tie-bet">0</output>
+              <button type="button" class="step-button" data-bet="tie" data-step="5" aria-label="Increase tie bet by 5">+</button>
+            </div>
+          </div>
+          <div class="bet-row">
+            <div class="bet-label"><span class="bet-icon suited-icon">✦</span><span><strong>Suited bet</strong><small>Pays 3x, plus 2x if you win</small></span></div>
+            <div class="stepper">
+              <button type="button" class="step-button" data-bet="suited" data-step="-5" aria-label="Decrease suited bet by 5">−</button>
+              <output id="suited-bet">0</output>
+              <button type="button" class="step-button" data-bet="suited" data-step="5" aria-label="Increase suited bet by 5">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="play-controls">
+          <div class="total-bet">TOTAL BET <strong id="total-bet">50</strong></div>
+          <button type="button" class="deal-button" id="deal-button">DEAL HAND <span aria-hidden="true">→</span></button>
+          <button type="button" class="auto-button" id="auto-button">▶ &nbsp; AUTO PLAY</button>
+        </div>
+      </section>
+
+      <details class="stats-panel">
+        <summary>Session stats <span>View payout tally</span></summary>
+        <div class="stats-grid">
+          <div>Player wins <strong data-stat="main_2x">0</strong></div>
+          <div>House wins <strong data-stat="main_0x">0</strong></div>
+          <div>Ties <strong data-stat="main_tie">0</strong></div>
+          <div>War 2.5x <strong data-stat="main_2.5x">0</strong></div>
+          <div>War 3.5x <strong data-stat="main_3.5x">0</strong></div>
+          <div>War 5x <strong data-stat="main_5x">0</strong></div>
+          <div>Triple tie jackpot <strong data-stat="main_100x">0</strong></div>
+          <div>Tie side bets <strong data-stat="side_tie">0</strong></div>
+          <div>Suited side bets <strong data-stat="side_suited">0</strong></div>
+          <div>Suited wins <strong data-stat="side_suited+win">0</strong></div>
+          <div>Wars lost <strong data-stat="wars_lost">0</strong></div>
+        </div>
+      </details>
+      <footer>For entertainment only · No real money</footer>
+    </main>
+  </body>
+</html>
